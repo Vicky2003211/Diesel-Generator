@@ -1,0 +1,25 @@
+.fuel-circle {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+.progress-ring__bg,
+.progress-ring__circle {
+  fill: none;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.fuel-percent {
+  font-size: 1.2rem;
+  font-weight: bold;
+  fill: #333;
+}

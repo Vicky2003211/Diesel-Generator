@@ -1,0 +1,53 @@
+.create-dg-card {
+  max-width: 400px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 130px auto;
+  text-align: center;
+}
+
+.create-dg-card h3 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.create-dg-card input {
+  width: 90%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: 0.3s border-color ease;
+}
+
+.create-dg-card input:focus {
+  border-color: #28a745;
+  outline: none;
+}
+
+.submit-btn {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #218838;
+  transform: scale(1.03);
+}
+
+.status-msg {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  color: #555;
+}
