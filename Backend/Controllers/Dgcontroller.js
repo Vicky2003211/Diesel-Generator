@@ -12,12 +12,20 @@ const createDG = async (req, res) => {
 
 const getAllDGs = async (req, res) => {
   try {
-    const dgs = await DieselGenerator.find();
+    const { org_id } = req.query; // 👉 extract org_id from query
+
+    let filter = {};
+    if (org_id) {
+      filter.org_id = org_id; // 🔍 filter only if org_id is provided
+    }
+
+    const dgs = await DieselGenerator.find(filter);
     res.json(dgs);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
+
 
 const addTelemetry = async (req, res) => {
   try {

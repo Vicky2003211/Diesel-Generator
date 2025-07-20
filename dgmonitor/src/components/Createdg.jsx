@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import '../css/Createdg.css';
+import { useLocation } from 'react-router-dom';
+
 
 const CreateDG = ({ onCreated }) => {
+  const location = useLocation();
+  const userdata = location.state || JSON.parse(localStorage.getItem('user'));
   const [formData, setFormData] = useState({
     name: '',
     serial_number: '',
-    location: ''
+    location: '',
+    org_id: userdata?.org_id || '' // 🔗 fetch from localStorage
+
   });
 
   const [status, setStatus] = useState('');

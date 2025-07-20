@@ -1,9 +1,17 @@
-import Home from '../src/components/Home'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AuthPage from './components/Userlogin';
+import Home from './components/Home';
 
 function App() {
   return (
-    <Home />
+    <Router>
+      <Routes>
+        <Route path="/" element={<AuthPage />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+

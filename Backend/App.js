@@ -1,7 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const dgRoutes = require('./Routes/Route'); // Make sure the filename and path match exactly
+const dgRoutes = require('./Routes/Route'); 
+require('dotenv').config();
+
 
 const app = express();
 app.use(express.json());

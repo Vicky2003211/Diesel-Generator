@@ -1,0 +1,92 @@
+/* src/pages/AuthPage.css */
+.auth-container {
+  height: 100vh;
+  background: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 20px;
+}
+
+.glass-box {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 2.5rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 420px;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.title {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.tab-buttons button {
+  padding: 10px 24px;
+  margin: 0 8px;
+  border-radius: 30px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tab-buttons .active {
+  background-color: #fff;
+  color: #1e3c72;
+  font-weight: bold;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-form input,
+.auth-form select {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+}
+
+.submit-btn {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  padding: 12px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
+.message {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  text-align: center;
+  color: #fff3cd;
+}

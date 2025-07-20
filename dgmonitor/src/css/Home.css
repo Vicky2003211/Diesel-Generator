@@ -87,13 +87,71 @@ body {
 .create-dg-container {
   margin-top: 20px;
   display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  margin-right: 80px;
+}
+
+.Logout-btn{
+  background-color: #ff0000; /* green */
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 120px;
+}
+
+.Logout-btn:hover{
+  background-color: #b81a1a;
+  transform: scale(1.05);
+}
+
+.Logout-btn:active{
+  transform: scale(0.95);
+}
+/* Button Styling */
+.create-btn {
+  background-color: #ffaa00; /* green */
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-right: 60px;
+}
+
+.create-btn:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.create-btn:active {
+transform: scale(0.95);
+}
+
+
+
+
+/* latest*/
+.latest-dg-container {
+  margin-top: 20px;
+  display: flex;
   justify-content: flex-start;
   margin-bottom: 20px;
   margin-left: 80px;
 }
 
 /* Button Styling */
-.create-btn {
+.latest-btn {
   background-color: #28a745; /* green */
   color: #fff;
   border: none;
@@ -106,47 +164,13 @@ body {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.create-btn:hover {
+.latest-btn:hover {
   background-color: #ffaa00;
   transform: scale(1.05);
 }
 
-.create-btn:active {
-  transform: scale(0.95);
-}
-
-
-
-
-/* latest*/
-.latest-dg-container {
-  margin-top: 20px;
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 20px;
-  margin-right: 80px;
-}
-
-/* Button Styling */
-.latest-btn {
-  background-color: #ffaa00; /* green */
-  color: #fff;
-  border: none;
-  padding: 10px 18px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.latest-btn:hover {
-  background-color: #218838;
-  transform: scale(1.05);
-}
-
 .latest-btn:active {
+
   transform: scale(0.95);
 }
 

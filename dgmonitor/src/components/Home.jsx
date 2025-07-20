@@ -2,28 +2,41 @@ import React, { useEffect, useState } from 'react';
 import '../css/Home.css';
 import TelemetryData from './Telemetrydata';
 import CreateDG from './Createdg';
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // ✅ Step 1
 
 
 const Home = () => {
     const [dgList, setDgList] = useState([]);
     const [selectedDG, setSelectedDG] = useState(null);
     const [showCreateModal, setShowCreateModal] = useState(false);
+    const location = useLocation();
+    const userdata = location.state || JSON.parse(localStorage.getItem('user'));
+    const navigate = useNavigate(); // ✅ Step 2
 
+    useEffect(() => {
+        if (!userdata) {
+            navigate('/');  // redirect to login if not authenticated
+        }
+    }, []);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const dgResponse = await fetch('http://localhost:5000/api/dgs');
+                const dgResponse = await fetch(`http://localhost:5000/api/dgs?org_id=${userdata?.org_id}`);
                 const dgs = await dgResponse.json();
+
+
+                console.log(userdata)
 
                 const dgWithTelemetry = await Promise.all(
                     dgs.map(async (dg) => {
                         try {
                             const telemetryRes = await fetch(`http://localhost:5000/api/dgs/${dg._id}/gettelemetry`);
                             const telemetry = await telemetryRes.json();
-                            return { ...dg, ...telemetry }; 
+                            return { ...dg, ...telemetry };
                         } catch {
-                            return dg; 
+                            return dg;
                         }
                     })
                 );
@@ -34,8 +47,10 @@ const Home = () => {
             }
         };
 
+
+
         fetchData();
-        const interval = setInterval(fetchData, 5000); 
+        const interval = setInterval(fetchData, 5000);
         return () => clearInterval(interval);
     }, []);
 
@@ -43,19 +58,26 @@ const Home = () => {
     const closeModal = () => setSelectedDG(null);
 
     const fetchLatestDG = async () => {
-  try {
-    const res = await fetch('http://localhost:5000/api/dgs/telemetry/latest');
-    const data = await res.json();
+        try {
+            const res = await fetch('http://localhost:5000/api/dgs/telemetry/latest');
+            const data = await res.json();
 
-    if (data && data.dg_id) {
-      setSelectedDG(data); 
-    } else {
-      alert('No latest DG found');
-    }
-  } catch (err) {
-    alert('Failed to fetch latest DG');
-  }
-};
+            if (data && data.dg_id) {
+                setSelectedDG(data);
+            } else {
+                alert('No latest DG found');
+            }
+        } catch (err) {
+            alert('Failed to fetch latest DG');
+        }
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem('user');
+        navigate('/');
+
+    };
+
 
 
     return (
@@ -89,8 +111,14 @@ const Home = () => {
                 </table>
 
                 <div className="action-buttons-container">
-                    <button className="create-btn" onClick={() => setShowCreateModal(true)}>➕ Create DG</button>
                     <button className="latest-btn" onClick={fetchLatestDG}>📊 Latest DG</button>
+                    {userdata?.role === 'admin' && (
+                        <button className="create-btn" onClick={() => setShowCreateModal(true)}>
+                            ➕ Create DG
+                        </button>
+                    )}
+                    <button className="Logout-btn" onClick={handleLogout}> Logout </button>
+
                 </div>
             </div>
 
